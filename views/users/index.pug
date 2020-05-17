@@ -1,0 +1,22 @@
+extends ../layout/common
+block content
+  
+  h1
+    span.mr-2 Users
+    a.btn.btn-primary(href="/users/create") create
+  .d-flex.align-items-center
+    form.ml-auto(action="/users/search", method= "GET", class="d-flex")
+      input(type="text", name= "q", class="form-control")
+      button.ml-1(class="btn btn-primary") search	
+  table.table
+    tr
+      th Name
+      th Phonel
+      th Actions
+
+    each user in users
+      tr
+        td= user.name
+        td= user.phonel
+        td
+          a.btn.btn-light(href='/users/' + user.id) view
